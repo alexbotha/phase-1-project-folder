@@ -1,35 +1,54 @@
-const mainDiv = () => document.getElementById("main")
+//Event listener - DOMContent Loaded 
 
-document.addEventListener("DOMContentLoaded", () => {
-  renderHomePage();
-  fetchDogData();
   
-  //Event listeners
-  function fetchDogData(){
-  const dogImageUrl = "https://dog.ceo/api/breeds/image/random"
-  fetch(dogImageUrl)
-  .then(res => res.json())
-  .then(data => console.log(data))
+  document.addEventListener('DOMContentLoaded', (event) => { 
+
+    
+    const catAPI = "https://dog.ceo/api/breeds/image/random/4"
+    const randomCatElement = document.querySelector(".random-cats")
+    const goButton = document.querySelector(".go-button")
+  
+    //Fetch request of dog images from the API
+    function getRandomCat(){
+      randomCatElement.innerHTML = ""
+      fetch(catAPI)
+      .then((res) => res.json())
+      .then((passJsonData) => renderCatImages(passJsonData))
+    }
+    
+    //Building a function that takes in the argument of passCatAPIData so we can render it onto the DOM
+    function renderCatImages(recievesThePassedJsonData){
+      
+      //Using dot notation to select the json data that has the key of message I use the forEach array method to irate over catImages which contains the API data, in this case, the images
+  recievesThePassedJsonData.message.forEach(catImage => {
+    
+    //Following on from using arrow syntax I have now started to create the structure of the images using columns to contain the API data
+    const columnElement = document.createElement("div");
+    columnElement.classList.add('column');
+    console.log(columnElement)
+    
+
+    const cardElement = document.createElement("div");
+    cardElement.classList.add("card");
+    columnElement.appendChild(cardElement);
+    
+    const cardImageElement = document.createElement("div");
+    cardImageElement.classList.add("card-image");
+    cardElement.appendChild(cardImageElement);
+    
+    const figureElement = document.createElement("figure");
+    figureElement.classList.add('image');
+    cardImageElement.appendChild(figureElement)
+    
+    const imageElement = document.createElement("img")
+    imageElement.src = catImage;
+    figureElement.appendChild(imageElement);
+    
+    randomCatElement.appendChild(columnElement);
+    
+  });
 }
 
-//Event Handlers
-function renderHomePage(){
-  resetMainDiv();
-
-  const h1 = document.createElement("h1")
-  const p = document.createElement("p")
-
-  h1.innerText = "emoji"
-  h1.style.marginTop = "0"
-  p.innerText = "Welcome to random dogs! Click the button below to see a photo of a good doggo"
-
-  mainDiv().appendChild(h1);
-  mainDiv().appendChild(p);
-}
-
-//Helpers
-function resetMainDiv(){
-  mainDiv().innerHTML = ""
-}
-
+//Event Listener - generating dog images 
+goButton.addEventListener("click", getRandomCat);
 })

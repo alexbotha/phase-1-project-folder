@@ -1,0 +1,14 @@
+.title{
+  text-align: center;
+}
+
+.subtitle{
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.generator-btn{
+  margin-top: 1rem;
+  text-align: center;
+  cursor: pointer;
+}

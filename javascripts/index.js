@@ -62,6 +62,7 @@ let breeds = []
           const li = document.createElement("li")
           li.textContent = breed
           ul.append(li)
+          li.append
         })
     }
 

@@ -1,15 +1,5 @@
+<<<<<<< HEAD
 # Project Name - Dog Generator
+=======
+>>>>>>> adbf657d0646c3a5af4f9e7f727df1b30a13fcb8
 
-### Requirments 
-* Have json-server installed
-
-### Installation Instructions 
-* fork and clone
-* run json server for db.json
-* open index.html in the broswer
-
-### Contribution 
-* You can contribute by emailining me: alexbotha@hotmail.co.uk for info.
-
-### Lisencing 
-MIT lisence 

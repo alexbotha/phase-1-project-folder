@@ -1,4 +1,4 @@
-# Project Name - Dog generator
+# Project Name - Dog generator cc
 
 ### Requirments 
 * Have json-server installed

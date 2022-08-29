@@ -16,6 +16,9 @@
   <!--bulma CSS link-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
 <title>Project 1: Dog randomiser</title>
 </head>
 <body>
@@ -29,7 +32,6 @@
       </p>
     </div>
   </section>
-
   <div class="generator-btn">
     <button class="pawBtn button is-large is-rounded">🐾</button>
   </div>
@@ -41,17 +43,37 @@
       <p class="title">
         Search for a specific breed
       <p class="subtitle">
-       Does your heart belong to a specific breed? Search below to find the breed of your dreams...
+       Does your heart belong to a specific breed? Type in your favourite below and watch it magically appear on your screen!
       </p>
     </div>
   </section>
+  
+  <hr>
+    <label for="select-breed">Filter Breeds That Start with:</label>
+    <select id="breed-dropdown" name="select-breed">
+      <option value="a">a</option>
+      <option value="b">b</option>
+      <option value="c">c</option>
+      <option value="d">d</option>
+    </select>
+    
+    <ul id="dog-breeds">
+      
+    </ul>
 
-  <div class="search-breed">
-    <input class="input" type="text" placeholder=  "Search for your favourite breed...">
+
+  <!--
+    <div class="searchBreed">
+    <label for="Search">Search breeds</label>
+    <input type="search" id="search" data-search="">
   </div>
+  
+  </div>
+  --> 
+  
 
 </main>
 <!--JAVASCRIPT FILE-->
-<script src="javascripts/index.js"></script>
+<script src="javascripts/index.js" charset="utf-8"></script>
 </body>
 </html>

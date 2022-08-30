@@ -1,22 +1,20 @@
-
-/* Page title heading*/
+/* Page title heading */
 .title {
   text-align: center;
 }
 
-/*Page subtitle heading*/
+/* Page subtitle heading */
 .subtitle {
   margin-top: 2rem;
   text-align: center;
 }
 
-/*paw button to generate random doggos*/
+/* paw button to generate random doggos */
 .generator-btn {
   margin-top: 1rem;
   text-align: center;
   cursor: pointer;
   margin-bottom: 2rem;
-  
 }
 
 /* Breed list heading */
@@ -24,19 +22,21 @@
   text-align: center;
 }
 
-/*Dropdown menu*/
-.control{
+/* Dropdown menu */
+.control {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.submitBtn{
+/* Submit button for the submit event */
+.submitBtn {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-#search{
+/* Search bar */
+#search {
   text-align: center;
 }

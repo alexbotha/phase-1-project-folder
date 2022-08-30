@@ -1,13 +1,13 @@
+/////////////////////GLOBAL VARIABLES////////////////////////
+
+const imageContainer = document.querySelector(".image-container");
+const dogAPI = "https://dog.ceo/api/breeds/image/random/4";
+const pawBtn = document.querySelector(".pawBtn");
+const submitBtn = document.getElementById("submit-section");
+
 /////////////////Event listener - DOMContent Loaded/////////////
 
 document.addEventListener("DOMContentLoaded", () => {
-  /////////////////////GLOBAL VARIABLES////////////////////////
-
-  const imageContainer = document.querySelector(".image-container");
-  const dogAPI = "https://dog.ceo/api/breeds/image/random/4";
-  const pawBtn = document.querySelector(".pawBtn");
-  const submitBtn = document.getElementById("submit-section");
-
   /////////////////RANDOM DOG PHOTO FROM API//////////////
 
   function getRandomDog() {

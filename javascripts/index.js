@@ -50,7 +50,9 @@ document.addEventListener("DOMContentLoaded", () => {
   submitBtn.addEventListener("submit", (e) => {
     imageContainer.innerHTML = "";
     e.preventDefault();
-    fetch(`https://dog.ceo/api/breed/${e.target[0].value}/images/random/4`)
+    fetch(
+      `https://dog.ceo/api/breed/${e.target[0].value.toLowerCase()}/images/random/4`
+    )
       .then((res) => res.json())
       .then((passData) => renderBreedImages(passData));
 

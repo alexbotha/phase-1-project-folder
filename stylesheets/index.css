@@ -30,3 +30,13 @@
   align-items: center;
   justify-content: center;
 }
+
+.submitBtn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#search{
+  text-align: center;
+}

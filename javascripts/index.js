@@ -4,6 +4,7 @@ const imageContainer = document.querySelector(".image-container");
 const dogAPI = "https://dog.ceo/api/breeds/image/random/4";
 const pawBtn = document.querySelector(".pawBtn");
 const submitBtn = document.getElementById("submit-section");
+const allBreedAPI = "https://dog.ceo/api/breeds/list/all";
 
 /////////////////Event listener - DOMContent Loaded/////////////
 
@@ -42,14 +43,13 @@ document.addEventListener("DOMContentLoaded", () => {
       imageContainer.appendChild(columnElement);
     });
   }
-
   pawBtn.addEventListener("click", getRandomDog);
 
   //////////////////////BREED LIST FROM API ///////////////////
 
   submitBtn.addEventListener("submit", (e) => {
-    imageContainer.innerHTML = "";
     e.preventDefault();
+    imageContainer.innerHTML = "";
     fetch(
       `https://dog.ceo/api/breed/${e.target[0].value.toLowerCase()}/images/random/4`
     )

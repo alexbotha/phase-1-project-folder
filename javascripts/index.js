@@ -1,23 +1,12 @@
-/////////////////////GLOBAL VARIABLES////////////////////////
-
+// Global Variables
 const imageContainer = document.querySelector(".image-container");
 const dogAPI = "https://dog.ceo/api/breeds/image/random/4";
 const pawBtn = document.querySelector(".pawBtn");
 const submitBtn = document.getElementById("submit-section");
-const allBreedAPI = "https://dog.ceo/api/breeds/list/all";
 
-/////////////////Event listener - DOMContent Loaded/////////////
-
+// Event listener - DOMContent Loaded
 document.addEventListener("DOMContentLoaded", () => {
-  /////////////////RANDOM DOG PHOTO FROM API//////////////
-
-  function getRandomDog() {
-    imageContainer.innerHTML = "";
-    fetch(dogAPI)
-      .then((res) => res.json())
-      .then((passJsonData) => renderDogImages(passJsonData));
-  }
-
+  // Helper function - DRY
   function helper(dogImage) {
     const columnElement = document.createElement("div");
     columnElement.classList.add("column");
@@ -42,6 +31,14 @@ document.addEventListener("DOMContentLoaded", () => {
     imageContainer.appendChild(columnElement);
   }
 
+  // Random Dog photo being fetched from API
+  function getRandomDog() {
+    imageContainer.innerHTML = "";
+    fetch(dogAPI)
+      .then((res) => res.json())
+      .then((passJsonData) => renderDogImages(passJsonData));
+  }
+
   function renderDogImages(recievesThePassedJsonData) {
     recievesThePassedJsonData.message.forEach((iterateOverDogImageObjects) => {
       helper(iterateOverDogImageObjects);
@@ -49,8 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   pawBtn.addEventListener("click", getRandomDog);
 
-  //////////////////////BREED LIST FROM API ///////////////////
-
+  // Fetching specific breed from API using event target
   submitBtn.addEventListener("submit", (e) => {
     e.preventDefault();
     imageContainer.innerHTML = "";

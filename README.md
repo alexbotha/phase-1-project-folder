@@ -13,4 +13,4 @@ MIT License
 
 ### Credit
 
-A special shoutout and thank you to those at Dog.CEO for providing the API and allowing the world to use
+A special shoutout and thank you to those at Dog.CEO for providing the API and allowing the world to use it to make cool projects

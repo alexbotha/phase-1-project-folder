@@ -10,3 +10,7 @@ Welcome, to Doggo Generator! Like the majority of the internet, we all love cute
 ### Licensing
 
 MIT License
+
+### Credit
+
+A special shoutout and thank you to those at Dog.CEO for providing the API and allowing the world to use

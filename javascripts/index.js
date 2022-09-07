@@ -18,29 +18,33 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((passJsonData) => renderDogImages(passJsonData));
   }
 
+  function helper(dogImage) {
+    const columnElement = document.createElement("div");
+    columnElement.classList.add("column");
+
+    const cardElement = document.createElement("div");
+    cardElement.classList.add("card");
+    columnElement.appendChild(cardElement);
+
+    const cardImageElement = document.createElement("div");
+    cardImageElement.classList.add("card-image");
+    cardElement.appendChild(cardImageElement);
+
+    const figureImgElement = document.createElement("figure");
+    figureImgElement.classList.add("figure");
+    cardImageElement.appendChild(figureImgElement);
+
+    const imageLink = document.createElement("img");
+    imageLink.classList.add("imageLink");
+    imageLink.src = dogImage;
+    figureImgElement.appendChild(imageLink);
+
+    imageContainer.appendChild(columnElement);
+  }
+
   function renderDogImages(recievesThePassedJsonData) {
     recievesThePassedJsonData.message.forEach((iterateOverDogImageObjects) => {
-      const columnElement = document.createElement("div");
-      columnElement.classList.add("column");
-
-      const cardElement = document.createElement("div");
-      cardElement.classList.add("card");
-      columnElement.appendChild(cardElement);
-
-      const cardImageElement = document.createElement("div");
-      cardImageElement.classList.add("card-image");
-      cardElement.appendChild(cardImageElement);
-
-      const figureImgElement = document.createElement("figure");
-      figureImgElement.classList.add("figure");
-      cardImageElement.appendChild(figureImgElement);
-
-      const imageLink = document.createElement("img");
-      imageLink.classList.add("imageLink");
-      imageLink.src = iterateOverDogImageObjects;
-      figureImgElement.appendChild(imageLink);
-
-      imageContainer.appendChild(columnElement);
+      helper(iterateOverDogImageObjects);
     });
   }
   pawBtn.addEventListener("click", getRandomDog);
@@ -58,27 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function renderBreedImages(getsData) {
       getsData.message.forEach((dogBreedImage) => {
-        const columnElement = document.createElement("div");
-        columnElement.classList.add("column");
-
-        const cardElement = document.createElement("div");
-        cardElement.classList.add("card");
-        columnElement.appendChild(cardElement);
-
-        const cardImageElement = document.createElement("div");
-        cardImageElement.classList.add("card-image");
-        cardElement.appendChild(cardImageElement);
-
-        const figureImgElement = document.createElement("figure");
-        figureImgElement.classList.add("figure");
-        cardImageElement.appendChild(figureImgElement);
-
-        const imageLink = document.createElement("img");
-        imageLink.classList.add("imageLink");
-        imageLink.src = dogBreedImage;
-        figureImgElement.appendChild(imageLink);
-
-        imageContainer.appendChild(columnElement);
+        helper(dogBreedImage);
       });
     }
   });

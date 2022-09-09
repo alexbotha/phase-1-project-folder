@@ -1,11 +1,11 @@
-// Global Variables
-const imageContainer = document.querySelector(".image-container");
-const dogAPI = "https://dog.ceo/api/breeds/image/random/4";
-const pawBtn = document.querySelector(".pawBtn");
-const submitBtn = document.getElementById("submit-section");
-
 // Event listener - DOMContent Loaded
 document.addEventListener("DOMContentLoaded", () => {
+  // Variables
+  const imageContainer = document.querySelector(".image-container");
+  const dogAPI = "https://dog.ceo/api/breeds/image/random/4";
+  const pawBtn = document.querySelector(".pawBtn");
+  const submitBtn = document.getElementById("submit-section");
+
   // Helper function - DRY
   function helper(dogImage) {
     const columnElement = document.createElement("div");

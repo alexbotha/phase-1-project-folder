@@ -36,12 +36,12 @@ document.addEventListener("DOMContentLoaded", () => {
     imageContainer.innerHTML = "";
     fetch(dogAPI)
       .then((res) => res.json())
-      .then((passJsonData) => renderDogImages(passJsonData));
+      .then((data) => renderRandomDog(data));
   }
 
-  function renderDogImages(recievesThePassedJsonData) {
-    recievesThePassedJsonData.message.forEach((iterateOverDogImageObjects) => {
-      helper(iterateOverDogImageObjects);
+  function renderRandomDog(data) {
+    data.message.forEach((iterateOverRandom) => {
+      helper(iterateOverRandom);
     });
   }
   pawBtn.addEventListener("click", getRandomDog);
@@ -54,12 +54,12 @@ document.addEventListener("DOMContentLoaded", () => {
       `https://dog.ceo/api/breed/${e.target[0].value.toLowerCase()}/images/random/4`
     )
       .then((res) => res.json())
-      .then((passData) => renderBreedImages(passData));
-
-    function renderBreedImages(getsData) {
-      getsData.message.forEach((dogBreedImage) => {
-        helper(dogBreedImage);
-      });
-    }
+      .then((data) => renderSpecificBreed(data));
   });
+
+  function renderSpecificBreed(data) {
+    data.message.forEach((iterateOverBreed) => {
+      helper(iterateOverBreed);
+    });
+  }
 });

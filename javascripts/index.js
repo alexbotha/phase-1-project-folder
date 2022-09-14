@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((res) => res.json())
       .then((data) => renderDog(data));
   }
+  pawBtn.addEventListener("click", getDog);
 
   // Random and Specific breed function - DRY
   function renderDog(data) {
@@ -47,7 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
       helper(iterateOverDog);
     });
   }
-  pawBtn.addEventListener("click", getDog);
 
   // Fetching specific breed from API using event target
   submitBtn.addEventListener("submit", (e) => {

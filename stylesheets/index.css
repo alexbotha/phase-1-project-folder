@@ -17,6 +17,13 @@
   margin-bottom: 2rem;
 }
 
+.clear-button {
+  margin-top: 1rem;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
 /* Breed list heading */
 .field {
   text-align: center;

@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const dogAPI = "https://dog.ceo/api/breeds/image/random/4";
   const pawBtn = document.querySelector(".pawBtn");
   const submitBtn = document.getElementById("submit-section");
+  const clearBtn = document.querySelector(".clearBtn");
+  const search = document.getElementById("search");
 
   // Helper function - DRY
   function helper(dogImage) {
@@ -32,19 +34,20 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Random Dog photo being fetched from API
-  function getRandomDog() {
+  function getDog() {
     imageContainer.innerHTML = "";
     fetch(dogAPI)
       .then((res) => res.json())
-      .then((data) => renderRandomDog(data));
+      .then((data) => renderDog(data));
   }
 
-  function renderRandomDog(data) {
-    data.message.forEach((iterateOverRandom) => {
-      helper(iterateOverRandom);
+  // Random and Specific breed function - DRY
+  function renderDog(data) {
+    data.message.forEach((iterateOverDog) => {
+      helper(iterateOverDog);
     });
   }
-  pawBtn.addEventListener("click", getRandomDog);
+  pawBtn.addEventListener("click", getDog);
 
   // Fetching specific breed from API using event target
   submitBtn.addEventListener("submit", (e) => {
@@ -54,12 +57,17 @@ document.addEventListener("DOMContentLoaded", () => {
       `https://dog.ceo/api/breed/${e.target[0].value.toLowerCase()}/images/random/4`
     )
       .then((res) => res.json())
-      .then((data) => renderSpecificBreed(data));
+      .then((data) => renderDog(data));
+    search.value = "";
   });
 
-  function renderSpecificBreed(data) {
-    data.message.forEach((iterateOverBreed) => {
-      helper(iterateOverBreed);
-    });
+  // Clearing images after they appear on the DOM
+  function clear() {
+    imageContainer.innerHTML = "";
   }
+  clearBtn.addEventListener("click", clear);
+
+  // function renderSpecificBreed(data) {
+  //   data.message.forEach((iterateOverBreed) => {
+  //     helper(iterateOverBreed);
 });

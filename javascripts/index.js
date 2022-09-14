@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     search.value = "";
   });
 
-  // Clearing images after they appear on the DOM
+  // Clearing images after they appear on the DOM via click event
   function clear() {
     imageContainer.innerHTML = "";
   }

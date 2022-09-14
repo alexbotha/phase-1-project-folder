@@ -17,7 +17,8 @@
   margin-bottom: 2rem;
 }
 
-.clear-button {
+/* reset button */
+.reset-button {
   margin-top: 1rem;
   text-align: center;
   cursor: pointer;

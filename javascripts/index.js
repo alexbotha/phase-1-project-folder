@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const dogAPI = "https://dog.ceo/api/breeds/image/random/4";
   const pawBtn = document.querySelector(".pawBtn");
   const submitBtn = document.getElementById("submit-section");
-  const clearBtn = document.querySelector(".clearBtn");
+  const resetBtn = document.querySelector(".resetBtn");
   const search = document.getElementById("search");
 
   // Helper function - DRY
@@ -58,14 +58,14 @@ document.addEventListener("DOMContentLoaded", () => {
     )
       .then((res) => res.json())
       .then((data) => renderDog(data));
-    search.value = "";
   });
 
   // Clearing images after they appear on the DOM via click event
-  function clear() {
+  function reset() {
     imageContainer.innerHTML = "";
+    search.value = "";
   }
-  clearBtn.addEventListener("click", clear);
+  resetBtn.addEventListener("click", reset);
 
   // function renderSpecificBreed(data) {
   //   data.message.forEach((iterateOverBreed) => {

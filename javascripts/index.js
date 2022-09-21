@@ -34,16 +34,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Random Dog photo being fetched from API
-  function getDog() {
+  function getDogs() {
     imageContainer.innerHTML = "";
     fetch(dogAPI)
       .then((res) => res.json())
-      .then((data) => renderDog(data));
+      .then((data) => renderDogs(data));
   }
-  pawBtn.addEventListener("click", getDog);
+  pawBtn.addEventListener("click", getDogs);
 
   // Random and Specific breed function - DRY
-  function renderDog(data) {
+  function renderDogs(data) {
     data.message.forEach((iterateOverDog) => {
       helper(iterateOverDog);
     });
@@ -57,7 +57,13 @@ document.addEventListener("DOMContentLoaded", () => {
       `https://dog.ceo/api/breed/${e.target[0].value.toLowerCase()}/images/random/4`
     )
       .then((res) => res.json())
-      .then((data) => renderDog(data));
+      .then((data) => {
+        if (data.status === "success") {
+          renderDogs(data);
+        } else {
+          alert("Breed not found. Try again");
+        }
+      });
   });
 
   // Clearing images after they appear on the DOM via click event
@@ -66,6 +72,16 @@ document.addEventListener("DOMContentLoaded", () => {
     search.value = "";
   }
   resetBtn.addEventListener("click", reset);
+
+  function mouseOver() {
+    resetBtn.innerText = "Are you sure?😭";
+  }
+  resetBtn.addEventListener("mouseover", mouseOver);
+
+  function mouseout() {
+    resetBtn.innerText = "Reset";
+  }
+  resetBtn.addEventListener("mouseout", mouseout);
 
   // function renderSpecificBreed(data) {
   //   data.message.forEach((iterateOverBreed) => {

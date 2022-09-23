@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const submitBtn = document.getElementById("submit-section");
   const resetBtn = document.querySelector(".resetBtn");
   const search = document.getElementById("search");
+  const errorMessage = document.createElement("h2");
+  const errorContainer = document.querySelector(".errorContainer");
 
   // Helper function - DRY
   function helper(dogImage) {
@@ -45,6 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Random and Specific breed function - DRY
   function renderDogs(data) {
     data.message.forEach((iterateOverDog) => {
+      errorContainer.innerText = "";
+      errorMessage.innerText = "";
       helper(iterateOverDog);
     });
   }
@@ -59,9 +63,15 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.status === "success") {
+          errorContainer.innerText = "";
+          errorMessage.innerText = "";
           renderDogs(data);
         } else {
-          alert("Breed not found. Try again");
+          errorMessage.innerHTML = "Doggo not found. Please try again";
+          errorContainer.append(errorMessage);
+          const img = document.createElement("img");
+          img.src = "images/saddog.jpg";
+          imageContainer.append(img);
         }
       });
   });
@@ -70,6 +80,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function reset() {
     imageContainer.innerHTML = "";
     search.value = "";
+    errorContainer.innerText = "";
+    errorMessage.innerText = "";
   }
   resetBtn.addEventListener("click", reset);
 

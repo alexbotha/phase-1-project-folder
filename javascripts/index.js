@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const search = document.getElementById("search");
   const errorMessage = document.createElement("h2");
   const errorContainer = document.querySelector(".errorContainer");
+  const timeStampContainer = document.querySelector(".timeStamp");
 
   // Helper function - DRY
   function helper(dogImage) {
@@ -35,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     imageContainer.appendChild(columnElement);
   }
 
-  // Random Dog photo being fetched from API
+  // Random Dog photos being fetched from API
   function getDogs() {
     imageContainer.innerHTML = "";
     fetch(dogAPI)
@@ -95,7 +96,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   resetBtn.addEventListener("mouseout", mouseout);
 
-  // function renderSpecificBreed(data) {
-  //   data.message.forEach((iterateOverBreed) => {
-  //     helper(iterateOverBreed);
+  // Automatic date counter
+  function getTimestampInSeconds() {
+    const time = document.createElement("p");
+    time.textContent = new Date().toLocaleDateString();
+    timeStampContainer.append(time);
+  }
+  getTimestampInSeconds();
 });
